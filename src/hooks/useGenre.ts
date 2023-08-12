@@ -1,13 +1,8 @@
-import useData from "./useData";
+import useGenres from "./useGenres";
 
-export interface Genre {
-    id: number;
-    name: string;
-    slug: string;
-    image_background: string
+const useGenre = (id?: number) => {
+  const {data: Genres} = useGenres()
+  return Genres?.results.find(g => g.id === id)
 }
-
-
-const useGenre = () => useData<Genre>('/genres')
 
 export default useGenre

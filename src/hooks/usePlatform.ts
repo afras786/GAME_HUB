@@ -1,7 +1,8 @@
-import useData from "./useData";
-import { PlatForm } from "./useGame";
+import usePlatforms from "./usePlatforms";
 
-
-const usePlatform = () => useData<PlatForm>('/platforms/lists/parents')
+const usePlatform = (id?: number) => {
+  const {data: Platforms} = usePlatforms()
+  return Platforms?.results.find(p => p.id === id)
+}
 
 export default usePlatform
